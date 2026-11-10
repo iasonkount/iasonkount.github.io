@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- EDIT: your name and a short description for search engines. -->
+  <title>Teaching | Jason Kountouridis</title>
+  <meta name="description" content="">
+  <style>
+/* Homepage formatting. Edit your text in the body below this style block. */
+
+:root {
+  /* EDIT: optional color and width settings. */
+  --text: #292c30;
+  --muted: #60656c;
+  --link: #245c85;
+  --rule: #dedfe2;
+  --page-width: 960px;
+  --photo-width: 220px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  color-scheme: light;
+  background: #fff;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+body {
+  width: min(var(--page-width), calc(100% - 64px));
+  margin: 0 auto;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  padding: 8px 12px;
+  background: #fff;
+  z-index: 1;
+}
+.skip-link:focus { top: 8px; }
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px 32px;
+  padding: 38px 0 22px;
+  border-bottom: 1px solid var(--rule);
+}
+.site-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.15rem;
+  line-height: 1.2;
+  color: var(--text);
+  text-decoration: none;
+}
+nav { display: flex; flex-wrap: wrap; gap: 26px; }
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+nav a[aria-current="page"] {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 7px;
+}
+
+main { padding: 34px 0 12px; }
+h1, h2, h3 {
+  line-height: 1.35;
+  color: var(--text);
+  font-weight: 600;
+}
+h1 { margin: 0 0 20px; font-size: 1.5rem; }
+h2 { margin: 0 0 22px; font-size: 1.3rem; }
+h3 { margin: 0 0 5px; font-size: 1.05rem; }
+p { margin: 0 0 17px; }
+.muted, .paper-details, .course-meta { color: var(--muted); }
+
+.introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--photo-width);
+  align-items: start;
+  gap: 56px;
+}
+.portrait { margin: 3px 0 0; }
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+.portrait figcaption {
+  color: var(--muted);
+  font-size: .8rem;
+  margin-top: 8px;
+}
+
+.contact-details { margin: 22px 0; font-size: .95rem; }
+.contact-details > div {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 0 12px;
+  margin: 4px 0;
+}
+.contact-details dt { font-weight: 600; }
+.contact-details dd { margin: 0; overflow-wrap: anywhere; }
+
+.content-section {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  margin-top: 30px;
+}
+.first-section { border-top: 0; padding-top: 0; margin-top: 28px; }
+.publication-list { padding-left: 26px; margin: 0; }
+.publication-list > li { margin-bottom: 24px; padding-left: 6px; }
+.publication-list > li::marker { color: var(--muted); }
+.paper-title { font-weight: 600; }
+.paper-details { margin-top: 3px; font-size: .95rem; }
+.paper-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: .95rem; }
+.simple-list { margin: 0; padding-left: 22px; }
+.simple-list > li { margin-bottom: 12px; }
+
+.course + .course { margin-top: 28px; }
+.course-meta { margin: 0 0 12px; font-size: .94rem; }
+.teaching-list { list-style: none; padding: 0; margin: 0; }
+.teaching-list > li { margin-bottom: 24px; }
+.resource-links { padding-left: 22px; }
+.resource-links > li { margin-bottom: 6px; }
+.page-intro { max-width: 720px; }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  border-top: 1px solid var(--rule);
+  padding: 20px 0 34px;
+  margin-top: 34px;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+/* On smaller screens the photograph moves below the introduction. */
+@media (max-width: 700px) {
+  body { width: calc(100% - 36px); }
+  .site-header { padding-top: 25px; gap: 16px; }
+  .site-name { font-size: 1.85rem; }
+  .introduction { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .portrait { width: min(var(--photo-width), 100%); margin-bottom: 4px; }
+  main { padding-top: 26px; }
+  .contact-details > div { grid-template-columns: 90px minmax(0, 1fr); }
+}
+
+@media print {
+  body { width: 100%; font-size: 11pt; }
+  nav, .skip-link { display: none; }
+  a { color: inherit; }
+  .site-header { padding-top: 0; }
+  .publication-list > li, .course { break-inside: avoid; }
+}
+
+/* A visible reserved space until you add your photograph. */
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #f3f3f1;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  text-align: center;
+}
+.photo-placeholder span { font-family: Georgia, serif; }
+.photo-placeholder small { font-size: .75rem; }
+.introduction > div { min-width: 0; }
+.research-interests { margin-left: 0; margin-right: 0; text-align: left; }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- EDIT: keep your name and the navigation consistent on all HTML pages. -->
+  <header class="site-header">
+    <a class="site-name" href="index.html">Jason (Iason) Kountouridis</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html" aria-current="page">Teaching</a>
+    </nav>
+  </header>
+
+  <main id="main">
+
+
+    <h1>Teaching</h1>
+<section class="content-section" aria-labelledby="supervision-heading">
+      <h2 id="supervision-heading">Supervision</h2>
+      <p>Fall 2025 - Supervised a project on Lie algebras for multiple L2 Algebra students as part of their curriculum</p>
+    </section>
+
+    <section class="content-section" aria-labelledby="past-heading">
+      <h2 id="past-heading">Teaching at University of Chicago</h2>
+      <ul class="teaching-list">
+        <!-- EDIT: duplicate a complete <li> ... </li> block for each course. -->
+        <li>
+          <h3>Math 15250: Math Methods for Economic Analysis</h3>
+          <p class="course-meta">Fall 2022, Fall 2023 and Winter 2024</p>
+          
+        </li>
+        <li>
+          <h3>Math 15300: Calculus III</h3>
+          <p class="course-meta">Winter 2023</p>
+        </li>
+ <li>
+          <h3>Math 15200: Calculus II</h3>
+          <p class="course-meta">Winter 2022</p>
+        </li>
+ <li>
+          <h3>Math 15100: Calculus I</h3>
+          <p class="course-meta">Fall 2021</p>
+        </li>
+ <li>
+          <h3>Math 13100, 13200, 13300: Elementary Functions and Calculus I-III</h3>
+          <p class="course-meta">Fall 2020, Winter 2021, Spring 2021</p>
+        </li>
+      </ul>
+    </section>
+
+    
+    
+  </main>
+
+</body>
+</html>

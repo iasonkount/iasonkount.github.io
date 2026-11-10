@@ -1,0 +1,290 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- EDIT: your name and a short description for search engines. -->
+  <title>Jason (Iason) Kountouridis | Mathematics</title>
+  <meta name="description" content="Academic homepage of Jason (Iason) Kountouridis.">
+  <!-- Layout is included here so this file displays correctly on its own. -->
+  <style>
+/* Homepage formatting. Edit your text in the body below this style block. */
+
+:root {
+  /* EDIT: optional color and width settings. */
+  --text: #292c30;
+  --muted: #60656c;
+  --link: #245c85;
+  --rule: #dedfe2;
+  --page-width: 960px;
+  --photo-width: 220px;
+}
+
+* { box-sizing: border-box; }
+
+html {
+  color-scheme: light;
+  background: #fff;
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+}
+
+body {
+  width: min(var(--page-width), calc(100% - 64px));
+  margin: 0 auto;
+}
+
+a {
+  color: var(--link);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+a:hover { text-decoration-thickness: 2px; }
+a:focus-visible {
+  outline: 2px solid var(--link);
+  outline-offset: 4px;
+}
+
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 16px;
+  padding: 8px 12px;
+  background: #fff;
+  z-index: 1;
+}
+.skip-link:focus { top: 8px; }
+
+.site-header {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px 32px;
+  padding: 38px 0 22px;
+  border-bottom: 1px solid var(--rule);
+}
+.site-name {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 2.15rem;
+  line-height: 1.2;
+  color: var(--text);
+  text-decoration: none;
+}
+nav { display: flex; flex-wrap: wrap; gap: 26px; }
+nav a { text-decoration: none; }
+nav a:hover { text-decoration: underline; }
+nav a[aria-current="page"] {
+  color: var(--text);
+  text-decoration: underline;
+  text-underline-offset: 7px;
+}
+
+main { padding: 34px 0 12px; }
+h1, h2, h3 {
+  line-height: 1.35;
+  color: var(--text);
+  font-weight: 600;
+}
+h1 { margin: 0 0 20px; font-size: 1.5rem; }
+h2 { margin: 0 0 22px; font-size: 1.3rem; }
+h3 { margin: 0 0 5px; font-size: 1.05rem; }
+p { margin: 0 0 17px; }
+.muted, .paper-details, .course-meta { color: var(--muted); }
+
+.introduction {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--photo-width);
+  align-items: start;
+  gap: 56px;
+}
+.portrait { margin: 3px 0 0; }
+.portrait img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  object-position: center;
+}
+.portrait figcaption {
+  color: var(--muted);
+  font-size: .8rem;
+  margin-top: 8px;
+}
+
+.contact-details { margin: 22px 0; font-size: .95rem; }
+.contact-details > div {
+  display: grid;
+  grid-template-columns: 100px minmax(0, 1fr);
+  gap: 0 12px;
+  margin: 4px 0;
+}
+.contact-details dt { font-weight: 600; }
+.contact-details dd { margin: 0; overflow-wrap: anywhere; }
+
+.content-section {
+  border-top: 1px solid var(--rule);
+  padding-top: 28px;
+  margin-top: 30px;
+}
+.first-section { border-top: 0; padding-top: 0; margin-top: 28px; }
+.publication-list { padding-left: 26px; margin: 0; }
+.publication-list > li { margin-bottom: 24px; padding-left: 6px; }
+.publication-list > li::marker { color: var(--muted); }
+.paper-title { font-weight: 600; }
+.paper-details { margin-top: 3px; font-size: .95rem; }
+.paper-links { display: flex; flex-wrap: wrap; gap: 18px; font-size: .95rem; }
+.simple-list { margin: 0; padding-left: 22px; }
+.simple-list > li { margin-bottom: 12px; }
+
+.course + .course { margin-top: 28px; }
+.course-meta { margin: 0 0 12px; font-size: .94rem; }
+.teaching-list { list-style: none; padding: 0; margin: 0; }
+.teaching-list > li { margin-bottom: 24px; }
+.resource-links { padding-left: 22px; }
+.resource-links > li { margin-bottom: 6px; }
+.page-intro { max-width: 720px; }
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 24px;
+  border-top: 1px solid var(--rule);
+  padding: 20px 0 34px;
+  margin-top: 34px;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+/* On smaller screens the photograph moves below the introduction. */
+@media (max-width: 700px) {
+  body { width: calc(100% - 36px); }
+  .site-header { padding-top: 25px; gap: 16px; }
+  .site-name { font-size: 1.85rem; }
+  .introduction { grid-template-columns: minmax(0, 1fr); gap: 10px; }
+  .portrait { width: min(var(--photo-width), 100%); margin-bottom: 4px; }
+  main { padding-top: 26px; }
+  .contact-details > div { grid-template-columns: 90px minmax(0, 1fr); }
+}
+
+@media print {
+  body { width: 100%; font-size: 11pt; }
+  nav, .skip-link { display: none; }
+  a { color: inherit; }
+  .site-header { padding-top: 0; }
+  .publication-list > li, .course { break-inside: avoid; }
+}
+
+/* A visible reserved space until you add your photograph. */
+.photo-placeholder {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #f3f3f1;
+  border: 1px solid var(--rule);
+  color: var(--muted);
+  text-align: center;
+}
+.photo-placeholder span { font-family: Georgia, serif; }
+.photo-placeholder small { font-size: .75rem; }
+.introduction > div { min-width: 0; }
+.research-interests { margin-left: 0; margin-right: 0; text-align: left; }
+  </style>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: {'[+]': [['$', '$']]}
+    }
+  };
+</script>
+
+<script defer
+  src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-chtml.js">
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <!-- EDIT: keep your name and the navigation consistent on all HTML pages. -->
+  <header class="site-header">
+    <a class="site-name" href="index.html">Jason (Iason) Kountouridis</a>
+    <nav aria-label="Main navigation">
+      <a href="index.html" aria-current="page">Home</a>
+      <a href="research.html">Research</a>
+      <a href="teaching.html">Teaching</a>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="introduction" aria-labelledby="about-heading">
+      <div>
+        <h1 id="about-heading">About me</h1>
+
+        <!-- EDIT: position, affiliation, and a brief introduction. -->
+        <p>
+          I am a <a href="https://scop.math.berkeley.edu/">Simons Collaboration</a>
+          postdoctoral fellow under the mentorship of <a href="https://webusers.imj-prg.fr/~kestutis.cesnavicius/">Kęstutis Česnavičius</a>, currently affiliated with the
+          <a href="https://www.imj-prg.fr/">Institut de Mathématiques de Jussieu–Paris Rive Gauche</a>
+          and the <a href="https://www.imo.universite-paris-saclay.fr/fr/">Laboratoire de Mathématiques d'Orsay - Université Paris-Saclay</a>. Previously I was a graduate student at
+the University of Chicago, under the mentorship of <a href="https://math.uchicago.edu/~emerton/">Matthew Emerton</a>. 
+        </p>
+        <!-- EDIT: research interests; this paragraph stays in the left column. -->
+        <p class="research-interests" id="research-interests">
+          I am primarily interested in arithmetic / birational geometry in positive and mixed characteristic, with a focus on singularities (rational and $F$-singularities) and cohomological invariants of varieties with singular reduction. I am also interested in the geometry of Fano fibrations in characteristic $p$.
+        </p>
+
+        <!-- EDIT: change BOTH the mailto address and the visible email address. -->
+        <dl class="contact-details">
+          <div>
+            <dt>Email</dt>
+            <dd><a href="mailto:kountouridis@imj-prg.fr
+">kountouridis@imj-prg.fr
+</a></dd>
+          </div>
+          <div>
+            <dt>Office</dt>
+            <dd>Bureau 15-25 508, Sorbonne Université</dd>
+          </div>
+          <div>
+            <dt>Address</dt>
+            <dd>
+              <address>
+                Institut de Mathématiques de Jussieu - Paris Rive Gauche<br>
+                Sorbonne Université<br>
+                4 place Jussieu, Bureau 15-25 508<br>
+                F-75005 Paris, France
+              </address>
+            </dd>
+          </div>
+        </dl>
+
+        <!-- EDIT: add your CV as files/cv.pdf, then replace the next paragraph with:
+        <p><a href="files/cv.pdf">Curriculum vitae (PDF)</a></p>
+        -->
+        <p><a href="files/cv.pdf">My CV.</a></p>
+      </div>
+
+     <figure class="portrait">
+  <img src="assets/photo.jpg"
+       alt="Portrait of Jason (Iason) Kountouridis"
+       width="220"
+       height="275">
+</figure>
+    </section>
+
+
+
+   
+  </main>
+
+ 
+</body>
+</html>
